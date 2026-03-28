@@ -1,0 +1,18 @@
+{
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Ayu Mirage",
+    "files.autoSave": "afterDelay",
+    "editor.fontFamily": "JetBrainsMono Nerd Font",
+    "editor.fontLigatures": false,
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.cursorBlinking": "smooth",
+    "redhat.telemetry.enabled": true,
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+    "editor.formatOnSave": true,
+
+} 
