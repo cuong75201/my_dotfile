@@ -1,0 +1,35 @@
+separator_block_width=20
+[battery]
+command=~/.config/i3blocks/scripts/battery.sh
+interval=30
+
+[volume]
+command=~/.config/i3blocks/scripts/volume.sh
+interval=once
+signal=1
+
+[brightness]
+command=~/.config/i3blocks/scripts/brightness.sh
+interval=once
+signal=2
+
+[cpu]
+command=~/.config/i3blocks/scripts/cpu.sh
+interval=5
+markup=none
+
+[memory]
+command=echo "RAM: $(free -h | awk '/^Mem:/ {print $3"/"$2}')"
+interval=5
+
+[time]
+command=date "+  %H:%M"
+interval=5
+
+[date]
+command=  ~/.config/i3blocks/scripts/display-cal.sh
+interval=5
+label=
+
+
+

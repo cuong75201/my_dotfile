@@ -1,0 +1,69 @@
+/* Variables */
+$bg: #1a1b26;
+$surface: #24283b;
+$text-main: #c0caf5;
+$text-muted: #565f89;
+$accent: #7aa2f7;
+
+.music-widget {
+  background-color: $bg;
+  border: 1px solid #2f3549;
+  padding: 10px;
+  color: $text-main;
+  font-family: "JetBrains Mono Nerd Font";
+}
+
+.cover-art {
+  min-width: 100px;
+  min-height: 100px;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  margin-right: 16px;
+}
+
+.song-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: $text-main;
+}
+
+.artist {
+  font-size: 12px;
+  color: $text-muted;
+  margin-bottom: 8px;
+}
+
+.controls button {
+  background: none;
+  border: none;
+  color: $text-main;
+  font-size: 18px;
+  padding: 0 20px;
+  margin-top: 10px;
+
+}
+.controls button:hover { color: $accent; }
+
+.progress-bar trough {
+  background-color: $surface;
+  min-height: 4px;
+  border-radius: 2px;
+  margin-top: 20px;
+}
+.progress-bar highlight {
+  background-color: $accent;
+  border-radius: 2px;
+}
+
+.volume_bar scale trough {
+  background-color: $surface;
+  min-height: 60px;
+  min-width: 8px;
+  border-radius: 4px;
+}
+.volume_bar scale highlight {
+  background-color: $accent;
+  border-radius: 4px;
+}
+.vol_icon { font-size: 16px; color: $text-muted; }

@@ -1,0 +1,49 @@
+;; --- Variables & Pollers ---
+(defpoll song_title :interval "1s" "playerctl metadata title || echo 'No Title'")
+(defpoll song_artist :interval "1s" "playerctl metadata artist || echo 'No Artist'")
+(defpoll player_status :interval "1s" "playerctl status || echo 'Stopped'")
+(defpoll song_position_s :interval "1s" "playerctl position")
+(defpoll song_length_s :interval "1s" "playerctl metadata mpris:length | awk '{print $1/1000000}'")
+(defpoll cover_art_path :interval "2s" "$HOME/.config/eww/scripts/get-cover.sh")
+
+(defpoll volume_percent :interval "1s" "pamixer --get-volume")
+(defpoll volume_mute :interval "1s" "pamixer --get-mute")
+
+;; --- Widget ---
+(defwidget music-widget []
+  (box :class "music-widget" :orientation "h" :space-evenly false
+    (box :class "cover-art" :style "background-image: url('${cover_art_path}');")
+
+    (box :orientation "v" :space-evenly false :hexpand true
+      (label :class "song-title" :text song_title :halign "start" :limit-width 20)
+      (label :class "artist" :text song_artist :halign "start" :limit-width 20)
+
+      (box :class "controls" :orientation "h" :halign "start" :space-evenly false
+        (button :onclick "playerctl previous" "󰒮")
+        (button :onclick "playerctl play-pause" {player_status == "Playing" ? "󰏤" : "󰐊"})
+        (button :onclick "playerctl next" "󰒭")
+      )
+
+      (scale :class "progress-bar"
+             :min 0 :max {song_length_s ?: 100}
+             :value {song_position_s ?: 0}
+             :onchange "playerctl position {}")
+    )
+
+    (box :class "volume_bar" :orientation "v" :spacing 10 :space-evenly false :valign "center"
+      (button :class "vol_icon"
+              :onclick "$HOME/.config/eww/scripts/volumecontroller.sh mute"
+              {volume_mute == "true" ? "󰝟" : ""})
+      (scale :flipped true :orientation "v" :max 100 :min 0
+             :value volume_percent
+             :onchange "$HOME/.config/eww/scripts/volumecontroller.sh set {}")
+    )
+  )
+)
+
+(defwindow music-widget
+  :monitor 0
+  :geometry (geometry :x "1550px" :y "50px" :width "350px" :height "130px")
+  :wm-ignore true
+  (music-widget)
+)

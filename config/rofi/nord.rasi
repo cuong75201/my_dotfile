@@ -1,0 +1,214 @@
+/**
+ * Nord Theme for Rofi
+ * Bảng màu Nord: https://www.nordtheme.com/
+ * Tác giả: Generated config
+ *
+ * Cách dùng:
+ *   rofi -show drun -theme ~/.config/rofi/nord.rasi
+ *
+ * Hoặc đặt trong ~/.config/rofi/config.rasi:
+ *   @theme "~/.config/rofi/nord.rasi"
+ */
+
+* {
+    /* ── Nord Polar Night ── */
+    nord0:  #2E3440;
+    nord1:  #3B4252;
+    nord2:  #434C5E;
+    nord3:  #4C566A;
+
+    /* ── Nord Snow Storm ── */
+    nord4:  #D8DEE9;
+    nord5:  #E5E9F0;
+    nord6:  #ECEFF4;
+
+    /* ── Nord Frost ── */
+    nord7:  #8FBCBB;
+    nord8:  #88C0D0;
+    nord9:  #81A1C1;
+    nord10: #5E81AC;
+
+    /* ── Nord Aurora ── */
+    nord11: #BF616A;   /* red   */
+    nord12: #D08770;   /* orange */
+    nord13: #EBCB8B;   /* yellow */
+    nord14: #A3BE8C;   /* green  */
+    nord15: #B48EAD;   /* purple */
+
+    /* ── Ánh xạ ngữ nghĩa ── */
+    background-color:   transparent;
+    text-color:         @nord4;
+    font:               "JetBrains Mono 12";
+}
+
+/* ════════════════════════════════════════
+   Window – khung ngoài cùng
+   ════════════════════════════════════════ */
+window {
+    background-color: @nord0;
+    border:           2px solid;
+    border-color:     @nord9;
+    border-radius:    10px;
+    padding:          0px;
+    width:            520px;
+}
+
+/* ════════════════════════════════════════
+   Mainbox – bố cục chính
+   ════════════════════════════════════════ */
+mainbox {
+    background-color: transparent;
+    padding:          16px;
+    spacing:          10px;
+    children:         [ inputbar, listview, message ];
+}
+
+/* ════════════════════════════════════════
+   Inputbar – thanh tìm kiếm
+   ════════════════════════════════════════ */
+inputbar {
+    background-color: @nord1;
+    border-radius:    6px;
+    padding:          8px 12px;
+    spacing:          8px;
+    children:         [ prompt, textbox-prompt-colon, entry ];
+}
+
+prompt {
+    background-color: transparent;
+    text-color:       @nord8;
+    font:             "JetBrains Mono Bold 12";
+}
+
+textbox-prompt-colon {
+    background-color: transparent;
+    text-color:       @nord3;
+    expand:           false;
+    str:              "›";
+}
+
+entry {
+    background-color: transparent;
+    text-color:       @nord6;
+    placeholder:      "Tìm kiếm...";
+    placeholder-color: @nord3;
+    cursor:           text;
+}
+
+/* ════════════════════════════════════════
+   Listview – danh sách kết quả
+   ════════════════════════════════════════ */
+listview {
+    background-color: transparent;
+    lines:            8;
+    columns:          1;
+    scrollbar:        true;
+    spacing:          4px;
+    fixed-height:     true;
+    dynamic:          true;
+}
+
+scrollbar {
+    background-color: @nord1;
+    handle-color:     @nord3;
+    handle-width:     4px;
+    border-radius:    4px;
+    width:            6px;
+}
+
+/* ════════════════════════════════════════
+   Element – từng mục trong danh sách
+   ════════════════════════════════════════ */
+element {
+    background-color: transparent;
+    text-color:       @nord4;
+    border-radius:    6px;
+    padding:          8px 12px;
+    spacing:          8px;
+    orientation:      horizontal;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color:       @nord4;
+}
+
+element normal.urgent {
+    background-color: transparent;
+    text-color:       @nord11;
+}
+
+element normal.active {
+    background-color: transparent;
+    text-color:       @nord14;
+}
+
+element selected.normal {
+    background-color: @nord2;
+    text-color:       @nord8;
+}
+
+element selected.urgent {
+    background-color: @nord11;
+    text-color:       @nord6;
+}
+
+element selected.active {
+    background-color: @nord14;
+    text-color:       @nord0;
+}
+
+element alternate.normal {
+    background-color: transparent;
+    text-color:       @nord4;
+}
+
+element-icon {
+    background-color: transparent;
+    size:             24px;
+}
+
+element-text {
+    background-color: transparent;
+    text-color:       inherit;
+    vertical-align:   0.5;
+    highlight:        bold #EBCB8B;
+}
+
+/* ════════════════════════════════════════
+   Message – thanh thông báo (nếu có)
+   ════════════════════════════════════════ */
+message {
+    background-color: @nord1;
+    border-radius:    6px;
+    padding:          6px 12px;
+}
+
+textbox {
+    background-color: transparent;
+    text-color:       @nord13;
+    font:             "JetBrains Mono Italic 11";
+}
+
+/* ════════════════════════════════════════
+   Mode-switcher – thanh chuyển chế độ
+   ════════════════════════════════════════ */
+mode-switcher {
+    background-color: @nord1;
+    border-radius:    6px;
+    padding:          4px;
+    spacing:          4px;
+}
+
+button {
+    background-color: transparent;
+    text-color:       @nord3;
+    border-radius:    4px;
+    padding:          4px 10px;
+    cursor:           pointer;
+}
+
+button selected {
+    background-color: @nord9;
+    text-color:       @nord6;
+}
