@@ -1,18 +1,54 @@
 {
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Ayu Mirage",
-    "files.autoSave": "afterDelay",
-    "editor.fontFamily": "JetBrainsMono Nerd Font",
-    "editor.fontLigatures": false,
-    "editor.cursorSmoothCaretAnimation": "on",
-    "editor.cursorBlinking": "smooth",
-    "redhat.telemetry.enabled": true,
-    "github.copilot.enable": {
-        "*": true,
-        "plaintext": false,
-        "markdown": false,
-        "scminput": false
-    },
-    "editor.formatOnSave": true,
-
-} 
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "Nord",
+  "editor.fontFamily": "JetBrainsMono Nerd Font Mono",
+  "editor.fontLigatures": false,
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorBlinking": "smooth",
+  "redhat.telemetry.enabled": true,
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false,
+    "python": false,
+    "dockercompose": true,
+    "java": false,
+  },
+  "editor.formatOnSave": true,
+  "python.createEnvironment.trigger": "off",
+  "files.associations": {
+    "*.css": "tailwindcss",
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "workbench.editorAssociations": {
+    "*.copilotmd": "vscode.markdown.preview.editor",
+    "*.java": "default",
+  },
+  "liveServer.settings.donotShowInfoMsg": true,
+  "chat.viewSessions.orientation": "stacked",
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "python.terminal.useEnvFile": true,
+  "files.autoSave": "afterDelay",
+  "workbench.editor.empty.hint": "hidden",
+  "java.completion.favoriteStaticMembers": [
+    "org.junit.Assert.*",
+    "org.junit.Assume.*",
+    "org.junit.jupiter.api.Assertions.*",
+    "org.junit.jupiter.api.Assumptions.*",
+    "org.junit.jupiter.api.DynamicContainer.*",
+    "org.junit.jupiter.api.DynamicTest.*",
+    "org.mockito.Mockito.*",
+    "org.mockito.ArgumentMatchers.*",
+    "org.mockito.Answers.*",
+    "org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*",
+    "org.springframework.test.web.servlet.result.MockMvcResultMatchers.*",
+    "org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.*",
+  ],
+  
+}
