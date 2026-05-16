@@ -1,4 +1,3 @@
-
 # Completion cache
 HISTFILE="$HOME/.config/zsh/.zhistory"
 HISTSIZE=10000
@@ -16,9 +15,10 @@ setopt inc_append_history
 # Ignore upper and lowercase when TAB completion
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
-# fastfetch. Will be disabled if above colorscript was chosen to install
+#fastfetch. Will be disabled if above colorscript was chosen to install
 fastfetch -c $HOME/.config/fastfetch/config-compact.jsonc
 
+fpath=(~/.config/.zsh/completion $fpath)
 # Basic auto/tab complete:
 autoload -Uz compinit
 zstyle ':completion:*' menu select
@@ -47,7 +47,6 @@ precmd() { vcs_info }
 
 RPROMPT='%(?..%F{red}%? ↵%f)'
 
-# Prompt chính
 PROMPT='╭─%B%F{green}%n@%m%f%b %B%F{blue}%~%f%b %F{yellow}${vcs_info_msg_0_}%f
 ╰─%B%(!.%F{red}#.%F{green}$)%f%b '
 
@@ -78,4 +77,9 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+#Setup pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
 
